@@ -54,9 +54,9 @@ def MainIterator(Times, DlVals, Area,SinkLocs,I2pdl,KConductivity,SurfaceArea):
         NewDlVals.append(DlVals[-1]+Area[-1]*DiffList[-1]*VariableConductivity(DlVals[-1],Area[-1]))
         DlVals=NewDlVals
     TotalReturn=[]
-    TotalReturn.append(DlVals)
     for i in ReturnedCounts:
         TotalReturn.append(i)
+    TotalReturn.append(DlVals)
     return TotalReturn
 
 def EnergToTemp(Energy, Area, dl):
