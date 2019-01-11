@@ -18,6 +18,8 @@ def SinkSetter(SinkLocs,DlVals):
 def MainIterator(Times, DlVals, Area,SinkLocs,I2pdl,KConductivity,ReturnedCountNum):
     ReturnedCounts=[]
     for Time in range(Times):
+
+        
         if Time in ReturnedCountNum:
             ReturnedCounts.append(DlVals)
         #DlVals = list(i+ConstAdd for i in DlVals)

@@ -18,7 +18,7 @@ def SinkSetter(SinkLocs,DlVals):
 def RadSubtract(Joules,SurfaceArea,CrossArea):
     Temp = EnergToTemp(Joules,CrossArea,0.001)
     Emissivity = 0.35
-    return Temp**4 * SurfaceArea * 0.001*Emissivity * 5.67*10**-8
+    return Temp**4 * SurfaceArea*0.1 *Emissivity * 5.67*10**-8
 
 def VariableResistivity(Joules,I2pdl,Area):
     Temp=EnergToTemp(Joules,Area,0.001)
@@ -29,10 +29,12 @@ def VariableConductivity(Joules,Area):
     return 15+ Temp/60
 
 
-def MainIterator(Times, DlVals, Area,SinkLocs,I2pdl,KConductivity,SurfaceArea):
-    ReturnedCountNum=[1000,1e4,1e5,5e5,1e6,2e6,3e6,4e6,5e6]
+def MainIterator(Times, DlVals, Area,SinkLocs,I2pdl,KConductivity,SurfaceArea,ReturnedCountNum):
+
     ReturnedCounts=[]
     for Time in range(Times):
+        if Time%(int(Times/100))==0:
+            print(int(100*Time/Times),end='\r')
         if Time in ReturnedCountNum:
             ReturnedCounts.append(DlVals)
 
